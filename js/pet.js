@@ -1,5 +1,5 @@
 export class pet {
-    constructor(name, age, furColor, voice) {
+    constructor(name, age, furColor) {
         this.name = name;
         this.age = age;
         this.furColor = furColor;

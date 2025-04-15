@@ -4,7 +4,4 @@ export class Cat extends pet {
         super(name, age, furColor);
         this.sound = 'Meow Meow!';
     }
-    meow() {
-        return `${this.name}: Meow Meow!`;
-    }
 }

@@ -4,7 +4,4 @@ export class Hamster extends pet {
         super(name, age, furColor);
         this.sound = "Squeak Squeak!";
     }
-    squeak() {
-        return `${this.name}: Squeak Squeak!`;
-    }
 }
