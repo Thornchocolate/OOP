@@ -35,4 +35,8 @@ console.log(Nibbles);
 console.log(Laika.bark());
 console.log(Luna.meow());
 console.log(Nibbles.squeak());
+console.log(Laika.makeSound());
+console.log(Luna.makeSound());
+console.log(Nibbles.makeSound());
+
 
