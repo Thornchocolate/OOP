@@ -12,5 +12,8 @@ console.log(volvo.intro());
 const passat = new Car('Volkswagen', 'Passat', 2018, 'white', 12, 50);
 console.log(passat.intro());
 console.log(volvo.refill(55));
-console.log(volvo.start());
+console.log(volvo.engineOn());
+console.log(volvo.drive());
+console.log(volvo.fuelLevel);
+console.log(volvo.engineOff());
 

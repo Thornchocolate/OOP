@@ -7,7 +7,7 @@ export class Car{
         this.kpl = kpl;;
         this.fuelLevel = 10; // in liters
         this.fuelTankCapacity = fuelTankCapacity; // in liters
-        this.engineOn = false;
+        this.engineIsOn = false;
     }
 
     intro () {
@@ -41,32 +41,48 @@ export class Car{
         }
     }
 
-    start() {
-        if (this.engineOn) {
+    engineOn() {
+        if (this.fuelLevel <= 0) {
+            return 'Cannot start the engine. Fuel tank is empty.';
+        }
+        if (this.engineIsOn) {
             return 'Engine is already running.';
         } else {
-            this.engineOn = true;
+            this.engineIsOn = true;
             return 'Engine started.';
         }
     }
     
-    stop() {
-        if (!this.engineOn) {
+    engineOff() {
+        if (!this.engineIsOn) {
             return 'Engine is already off.';
         } else {
-            this.engineOn = false;
+            this.engineIsOn = false;
             return 'Engine stopped.';
         }
     }
     
     drive(distance) {
         const fuelConsumption = distance / this.kpl;
-        if (this.fuelTankCapacity < fuelConsumption) {
-            return 'Not enough fuel to drive this distance.';
+        let driveFor = distance * this.kpl;
+        if (this.engineIsOn === false) {
+            return 'Cannot drive. The engine is off.';
+        }
+        if (distance <= 0) {
+            return 'Invalid distance.';
+        }
+        if (!isFinite(distance) || typeof distance !== 'number') {
+            return 'Invalid distance.';
+        }
+        if (this.fuelLevel <= 0) {
+            return 'Cannot drive. Fuel tank is empty.';
+        }
+        if (driveFor < distance) {
+            return `Not enough fuel to drive this distance. can only drive ${driveFor} kilometers.`;
         } else {
-            this.fuelTankCapacity -= fuelConsumption;
+            this.fuelLevel -= fuelConsumption;
+            this.fuelLevel -= fuelConsumption;
             return `Driving ${distance} kilometers consumes ${fuelConsumption.toFixed(2)} liters of fuel.`;
         } 
-        
     }
 };
